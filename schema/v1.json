@@ -1,0 +1,147 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://slideforge.dev/schema/v1.json",
+  "title": "SlideForge Presentation",
+  "description": "SlideForge Protocol v1.0 - AI-friendly slides schema",
+  "type": "object",
+  "required": ["$schema", "meta", "slides"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://slideforge.dev/schema/v1.json"
+    },
+    "meta": { "$ref": "#/definitions/Meta" },
+    "theme": { "$ref": "#/definitions/Theme" },
+    "slides": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Slide" },
+      "minItems": 1
+    },
+    "assets": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Asset" }
+    }
+  },
+  "definitions": {
+    "Meta": {
+      "type": "object",
+      "required": ["id", "title", "createdAt", "updatedAt", "version"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "author": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "version": { "type": "string" },
+        "language": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "aspectRatio": { "enum": ["16:9", "4:3", "1:1"] }
+      }
+    },
+    "Theme": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "primary": { "type": "string" },
+            "secondary": { "type": "string" },
+            "background": { "type": "string" },
+            "text": { "type": "string" },
+            "accent": { "type": "string" }
+          }
+        },
+        "fonts": {
+          "type": "object",
+          "properties": {
+            "heading": { "type": "string" },
+            "body": { "type": "string" },
+            "code": { "type": "string" }
+          }
+        },
+        "custom": { "type": "object" }
+      }
+    },
+    "Slide": {
+      "type": "object",
+      "required": ["id", "layout", "elements"],
+      "properties": {
+        "id": { "type": "string" },
+        "layout": {
+          "enum": ["title", "title-subtitle", "section", "content", "two-column", "three-column", "image-left", "image-right", "image-full", "comparison", "quote", "code", "blank"]
+        },
+        "background": { "$ref": "#/definitions/Background" },
+        "transition": { "$ref": "#/definitions/Transition" },
+        "elements": { "type": "array", "items": { "$ref": "#/definitions/Element" } },
+        "notes": { "type": "string" },
+        "hidden": { "type": "boolean" },
+        "duration": { "type": "number" }
+      }
+    },
+    "Background": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "enum": ["color", "gradient", "image", "video"] },
+        "value": { "type": "string" },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "overlay": { "type": "string" },
+        "position": { "type": "string" },
+        "size": { "enum": ["cover", "contain", "auto"] }
+      }
+    },
+    "Transition": {
+      "type": "object",
+      "properties": {
+        "type": { "enum": ["none", "fade", "slide", "zoom", "flip", "cube"] },
+        "direction": { "enum": ["left", "right", "up", "down"] },
+        "duration": { "type": "number" },
+        "easing": { "type": "string" }
+      }
+    },
+    "Animation": {
+      "type": "object",
+      "properties": {
+        "type": { "enum": ["none", "fade", "scale", "slide", "bounce", "rotate", "blur"] },
+        "direction": { "enum": ["up", "down", "left", "right"] },
+        "duration": { "type": "number" },
+        "delay": { "type": "number" },
+        "easing": { "type": "string" }
+      }
+    },
+    "Element": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "content": { "type": "string" },
+        "items": { "type": "array" },
+        "elements": { "type": "array", "items": { "$ref": "#/definitions/Element" } },
+        "src": { "type": "string" },
+        "alt": { "type": "string" },
+        "level": { "type": "integer", "minimum": 1, "maximum": 3 },
+        "ordered": { "type": "boolean" },
+        "language": { "type": "string" },
+        "animate": { "$ref": "#/definitions/Animation" },
+        "fragment": { "type": "integer" },
+        "style": { "type": "object" },
+        "class": { "type": "string" }
+      }
+    },
+    "Asset": {
+      "type": "object",
+      "required": ["id", "type", "src"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "enum": ["image", "video", "audio", "font", "file"] },
+        "src": { "type": "string" },
+        "name": { "type": "string" },
+        "size": { "type": "integer" },
+        "mime": { "type": "string" }
+      }
+    }
+  }
+}

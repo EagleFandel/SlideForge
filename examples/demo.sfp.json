@@ -1,0 +1,214 @@
+{
+  "$schema": "https://slideforge.dev/schema/v1.json",
+  "meta": {
+    "id": "demo-001",
+    "title": "SlideForge 产品介绍",
+    "description": "AI 友好的演示文稿框架",
+    "author": "SlideForge Team",
+    "createdAt": "2024-12-29T10:00:00Z",
+    "updatedAt": "2024-12-29T10:00:00Z",
+    "version": "1.0.0",
+    "language": "zh-CN",
+    "tags": ["产品", "介绍", "AI"],
+    "aspectRatio": "16:9"
+  },
+  "theme": {
+    "name": "gradient-cool",
+    "colors": {
+      "primary": "#6366f1",
+      "secondary": "#8b5cf6",
+      "background": "#1e1b4b",
+      "text": "#ffffff",
+      "accent": "#f59e0b"
+    },
+    "fonts": {
+      "heading": "Inter, system-ui, sans-serif",
+      "body": "Inter, system-ui, sans-serif",
+      "code": "Fira Code, monospace"
+    }
+  },
+  "slides": [
+    {
+      "id": "slide-cover",
+      "layout": "title",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      },
+      "elements": [
+        {
+          "type": "title",
+          "content": "SlideForge",
+          "animate": { "type": "scale", "duration": 600 }
+        },
+        {
+          "type": "text",
+          "content": "AI-Friendly Slides Framework",
+          "style": { "fontSize": "1.5rem", "opacity": "0.9" },
+          "animate": { "type": "fade", "delay": 200 }
+        },
+        {
+          "type": "text",
+          "content": "让 AI 为你生成精美演示文稿",
+          "style": { "marginTop": "2rem", "opacity": "0.7" },
+          "animate": { "type": "fade", "delay": 400 }
+        }
+      ],
+      "notes": "开场页：强调产品名称和核心价值主张"
+    },
+    {
+      "id": "slide-problem",
+      "layout": "content",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+      },
+      "transition": { "type": "slide", "direction": "left" },
+      "elements": [
+        {
+          "type": "title",
+          "content": "😩 传统 PPT 的痛点",
+          "level": 2,
+          "animate": { "type": "slide", "direction": "right" }
+        },
+        {
+          "type": "list",
+          "items": [
+            "手动排版耗时费力",
+            "设计风格难以统一",
+            "多人协作版本混乱",
+            "导出格式受限",
+            "AI 生成结果难以复用"
+          ],
+          "animate": { "type": "fade", "delay": 300 }
+        }
+      ],
+      "notes": "痛点共鸣：让听众意识到现有方案的问题"
+    },
+    {
+      "id": "slide-solution",
+      "layout": "content",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+      },
+      "transition": { "type": "fade" },
+      "elements": [
+        {
+          "type": "title",
+          "content": "✨ SlideForge 解决方案",
+          "level": 2,
+          "animate": { "type": "slide", "direction": "left" }
+        },
+        {
+          "type": "list",
+          "items": [
+            "📐 标准化 JSON Schema",
+            "🤖 AI 原生设计，一键生成",
+            "🎨 丰富主题 + 自定义样式",
+            "✨ 内置动画系统",
+            "📄 多格式导出 (PDF/HTML/PNG)"
+          ],
+          "animate": { "type": "fade", "delay": 200 }
+        }
+      ],
+      "notes": "解决方案：逐条对应痛点，展示产品优势"
+    },
+    {
+      "id": "slide-how",
+      "layout": "code",
+      "background": {
+        "type": "color",
+        "value": "#1e1b4b"
+      },
+      "transition": { "type": "zoom" },
+      "elements": [
+        {
+          "type": "title",
+          "content": "🚀 如何使用",
+          "level": 2,
+          "animate": { "type": "fade" }
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "content": "{\n  \"slides\": [\n    {\n      \"layout\": \"title\",\n      \"elements\": [\n        { \"type\": \"title\", \"content\": \"Hello World\" }\n      ]\n    }\n  ]\n}",
+          "animate": { "type": "scale", "delay": 300 }
+        },
+        {
+          "type": "text",
+          "content": "AI 生成 JSON → 导入平台 → 即刻演示",
+          "style": { "textAlign": "center", "marginTop": "1.5rem", "opacity": "0.8" },
+          "animate": { "type": "fade", "delay": 500 }
+        }
+      ],
+      "notes": "技术演示：展示简洁的 Schema 结构"
+    },
+    {
+      "id": "slide-features",
+      "layout": "two-column",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)"
+      },
+      "elements": [
+        {
+          "type": "group",
+          "elements": [
+            { "type": "title", "content": "🎯 核心功能", "level": 2, "style": { "color": "#333" } },
+            {
+              "type": "list",
+              "items": ["多种布局模板", "主题系统", "动画效果", "响应式设计"],
+              "style": { "color": "#555" }
+            }
+          ],
+          "animate": { "type": "slide", "direction": "left" }
+        },
+        {
+          "type": "group",
+          "elements": [
+            { "type": "title", "content": "🔧 开发者友好", "level": 2, "style": { "color": "#333" } },
+            {
+              "type": "list",
+              "items": ["TypeScript 支持", "插件扩展", "CLI 工具", "API 集成"],
+              "style": { "color": "#555" }
+            }
+          ],
+          "animate": { "type": "slide", "direction": "right" }
+        }
+      ],
+      "notes": "功能概览：左右对比展示产品能力"
+    },
+    {
+      "id": "slide-cta",
+      "layout": "title",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      },
+      "transition": { "type": "zoom" },
+      "elements": [
+        {
+          "type": "title",
+          "content": "开始使用 SlideForge",
+          "animate": { "type": "scale" }
+        },
+        {
+          "type": "text",
+          "content": "github.com/slideforge/slideforge",
+          "style": { "opacity": "0.8", "marginTop": "1rem" },
+          "animate": { "type": "fade", "delay": 300 }
+        },
+        {
+          "type": "button",
+          "label": "⭐ Star on GitHub",
+          "href": "https://github.com/slideforge/slideforge",
+          "style": { "marginTop": "2rem" },
+          "animate": { "type": "bounce", "delay": 500 }
+        }
+      ],
+      "notes": "行动号召：引导用户访问 GitHub"
+    }
+  ],
+  "assets": []
+}
