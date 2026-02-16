@@ -1,0 +1,62 @@
+# Dependencies
+**/node_modules/
+package-lock.json
+yarn.lock
+
+# Lockfile (must be tracked)
+!pnpm-lock.yaml
+
+# Build outputs
+**/dist/
+build/
+**/.next/
+out/
+*.tsbuildinfo
+
+# Turbo
+.turbo/
+
+# Cache
+.eslintcache
+.stylelintcache
+.cache/
+.pnpm-store/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local AI tooling
+.kiro/
+
+# Legacy prototype (read-only reference)
+SlideForge/*
+!SlideForge/docs/
+!SlideForge/docs/PROTOCOL.md
+!SlideForge/README_LEGACY.md
