@@ -39,7 +39,7 @@ export function ImportDropzone({ onImport }: ImportDropzoneProps) {
       const text = await file.text();
       JSON.parse(text); // 验证 JSON 格式
       await onImport(text);
-    } catch (e) {
+    } catch {
       setError('JSON 格式无效');
     }
   }, [onImport]);

@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
       valid: errors.length === 0,
       errors: errors.length > 0 ? errors : undefined,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { valid: false, errors: [{ path: '', message: 'Invalid JSON' }] },
       { status: 400 }

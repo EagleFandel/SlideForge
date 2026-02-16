@@ -47,7 +47,7 @@ export default function PresentPage() {
       if (document.fullscreenElement) {
         await document.exitFullscreen();
       }
-    } catch (e) {
+    } catch {
       // 忽略全屏退出错误
     }
     // 使用 window.location 替代 router.push 避免 fetch 错误
@@ -59,7 +59,7 @@ export default function PresentPage() {
       if (document.fullscreenElement) {
         await document.exitFullscreen();
       }
-    } catch (e) {
+    } catch {
       // 忽略全屏退出错误
     }
     window.location.href = `/slides/${id}/speaker`;

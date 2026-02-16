@@ -18,14 +18,13 @@
 'use client';
 
 import { useEffect, useState, useCallback, useRef } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { getPresentation, type StoredPresentation } from '@/lib/db';
 import { ScaledSlide } from '@/components/slides';
 
 export default function SlidePage() {
   const params = useParams();
-  const router = useRouter();
   const [presentation, setPresentation] = useState<StoredPresentation | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loading, setLoading] = useState(true);

@@ -53,7 +53,6 @@ export function ExportMenu({ document, filename, onClose }: ExportMenuProps) {
       // PDF 导出需要渲染每一页，这里用简化方案
       // 完整方案需要在隐藏容器中渲染每页再截图
       const { jsPDF } = await import('jspdf');
-      const { default: html2canvas } = await import('html2canvas');
       
       // 创建临时容器渲染所有页面
       const container = window.document.createElement('div');

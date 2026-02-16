@@ -20,7 +20,6 @@ import { create } from 'zustand';
 import { v4 as uuidv4 } from 'uuid';
 import type { SlideDocument } from '@slideforge/protocol';
 import { 
-  db, 
   getAllPresentations, 
   getPresentation, 
   savePresentation, 

@@ -265,6 +265,7 @@ function ImageElement({
 }) {
   return (
     <figure className={className} style={{ margin: 0, ...style }}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={element.src}
         alt={element.alt || ""}

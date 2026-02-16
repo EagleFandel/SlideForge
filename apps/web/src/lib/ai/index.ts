@@ -21,7 +21,7 @@ import type { AIProvider, CreatePresentationInput, AIGenerateResult } from './ty
 import { chromeAIProvider } from './providers/chrome-ai';
 import { ollamaProvider } from './providers/ollama';
 import { webllmProvider } from './providers/webllm';
-import { cloudAPIProvider, configureCloudAPI, clearCloudAPIConfig, type CloudAPIType } from './providers/cloud-api';
+import { cloudAPIProvider } from './providers/cloud-api';
 import { buildGeneratePrompt, SYSTEM_PROMPT } from './prompts';
 
 export * from './types';
