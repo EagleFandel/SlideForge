@@ -1,3 +1,20 @@
+/*
+ * SlideForge - AI-First Slides Protocol Framework
+ * Copyright (C) 2026 SlideForge Contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 "use client";
 
 import Link from "next/link";
@@ -24,7 +41,7 @@ export default function Home() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-8 backdrop-blur-sm border border-white/10">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span>开源项目 · MIT License</span>
+              <span>开源项目 · Apache 2.0</span>
             </div>
 
             {/* Title */}
@@ -36,10 +53,10 @@ export default function Home() {
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-slate-300 mb-4 max-w-2xl mx-auto">
-              面向 AI 的 Slides 协议框架 + Runtime
+              让 AI 生成的想法，第一次拥有可靠的展示终点
             </p>
             <p className="text-slate-400 mb-12 max-w-xl mx-auto">
-              标准化 JSON 协议，让 AI 生成的演示文稿可演示、可管理、可导出
+              AI 生成 → 协议校验 → 立即演示 → 稳定导出，一步到位
             </p>
 
             {/* CTA Buttons */}
@@ -114,21 +131,21 @@ export default function Home() {
           <div>
             <h2 className="text-3xl font-bold mb-4">简洁的 JSON 协议</h2>
             <p className="text-slate-400 mb-6">
-              结构化的 JSON 格式，AI 生成更可控，校验更简单。
-              支持丰富的元素类型、动画效果和布局模板。
+              AI 只需要输出 type + content，其他字段全部可省略。
+              Safe Defaults 让 AI 首次生成成功率 &gt;95%。
             </p>
             <ul className="space-y-3 text-slate-300">
               <li className="flex items-center gap-3">
                 <span className="w-5 h-5 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 text-xs">✓</span>
-                完整的 TypeScript 类型定义
+                Schema 校验 → AI 知道哪里错了
               </li>
               <li className="flex items-center gap-3">
                 <span className="w-5 h-5 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 text-xs">✓</span>
-                JSON Schema 校验支持
+                错误路径可读 → AI 可自修复
               </li>
               <li className="flex items-center gap-3">
                 <span className="w-5 h-5 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 text-xs">✓</span>
-                AI Prompt 模板库
+                Safe Defaults → 减少必填项
               </li>
             </ul>
           </div>
@@ -146,7 +163,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-white/10 py-12">
         <div className="max-w-6xl mx-auto px-6 text-center text-slate-400 text-sm">
-          <p>MIT License · Made with ❤️ for the AI era</p>
+          <p className="mb-2 text-slate-300 italic">"Slides 不再是文件，而是一种可计算的内容结构。"</p>
+          <p>Apache 2.0 License · Made with ❤️ for the AI era</p>
         </div>
       </footer>
     </main>
@@ -156,33 +174,33 @@ export default function Home() {
 const features = [
   {
     icon: "🤖",
-    title: "AI-First 设计",
-    description: "专为 AI 生成优化的协议，结构化 JSON 比 Markdown 更可控，校验更简单。",
+    title: "AI 首次成功率 >95%",
+    description: "Safe Defaults + Schema 校验，AI 只需输出 type + content，其他全部可省略。",
   },
   {
     icon: "🎬",
-    title: "在线演示",
-    description: "全屏演示模式，支持键盘导航、触控手势、演讲者备注和计时器。",
+    title: "立即演示",
+    description: "生成即可演示，全屏模式、键盘导航、触控手势、演讲者备注。",
   },
   {
     icon: "✨",
     title: "丰富动画",
-    description: "内置 15+ 种入场动画和页面切换效果，支持序列触发和自定义时序。",
+    description: "15+ 种入场动画，支持 sequence 触发，按 elements 顺序依次播放。",
   },
   {
     icon: "🎨",
     title: "主题系统",
-    description: "6 套内置主题，CSS 变量驱动，支持完全自定义品牌样式。",
+    description: "CSS 变量驱动，内置 dark/light/corporate 主题，支持完全自定义。",
   },
   {
     icon: "📤",
-    title: "多格式导出",
-    description: "高质量 PDF 导出，静态 HTML 打包，图片序列生成。",
+    title: "稳定导出",
+    description: "高质量 PDF、静态 HTML、图片序列，导出结果与预览一致。",
   },
   {
     icon: "🔌",
     title: "易于集成",
-    description: "提供 MCP Server、REST API 和 NPM 包，轻松集成到任何 AI 应用。",
+    description: "MCP Server、REST API、NPM 包，轻松集成到任何 AI 应用或 Agent。",
   },
 ];
 

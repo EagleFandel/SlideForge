@@ -6,46 +6,76 @@ import { SlideElement } from "./SlideElement";
 interface SlideCanvasProps {
   slide: Slide;
   className?: string;
+  animate?: boolean;
+  fullscreen?: boolean;
 }
 
-export function SlideCanvas({ slide, className = "" }: SlideCanvasProps) {
+interface LayoutProps {
+  slide: Slide;
+  animate: boolean;
+  fullscreen: boolean;
+}
+
+export function SlideCanvas({ slide, className = "", animate = true, fullscreen = false }: SlideCanvasProps) {
   const bgStyle = getBackgroundStyle(slide.background);
 
-  return (
-    <div
-      className={`sf-slide ${className}`}
-      style={{
+  // 全屏模式：完全填满屏幕，无黑边
+  const containerStyle: React.CSSProperties = fullscreen 
+    ? {
+        width: "100vw",
+        height: "100vh",
+        padding: "4vh 4vw",
+        display: "flex",
+        flexDirection: "column",
+        fontFamily: "'Inter', system-ui, sans-serif",
+        boxSizing: "border-box",
+        overflow: "hidden",
+        ...bgStyle,
+      }
+    : {
         width: "1280px",
         height: "720px",
         padding: "64px",
         display: "flex",
         flexDirection: "column",
         fontFamily: "'Inter', system-ui, sans-serif",
+        boxSizing: "border-box",
         ...bgStyle,
-      }}
+      };
+
+  return (
+    <div
+      className={`sf-slide ${className}`}
+      style={containerStyle}
     >
       {slide.layout === "title-center" ? (
-        <TitleCenterLayout slide={slide} />
+        <TitleCenterLayout slide={slide} animate={animate} fullscreen={fullscreen} />
       ) : slide.layout === "two-column" ? (
-        <TwoColumnLayout slide={slide} />
+        <TwoColumnLayout slide={slide} animate={animate} fullscreen={fullscreen} />
       ) : (
-        <DefaultLayout slide={slide} />
+        <DefaultLayout slide={slide} animate={animate} fullscreen={fullscreen} />
       )}
     </div>
   );
 }
 
-function DefaultLayout({ slide }: { slide: Slide }) {
+function DefaultLayout({ slide, animate, fullscreen }: LayoutProps) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "24px", flex: 1 }}>
+    <div style={{ 
+      display: "flex", 
+      flexDirection: "column", 
+      gap: fullscreen ? "3vh" : "24px", 
+      flex: 1,
+      overflow: "hidden",
+    }}>
       {slide.elements.map((element, index) => (
-        <SlideElement key={element.id || index} element={element} index={index} />
+        <SlideElement key={element.id || index} element={element} index={index} animate={animate} fullscreen={fullscreen} />
       ))}
     </div>
   );
 }
 
-function TitleCenterLayout({ slide }: { slide: Slide }) {
+function TitleCenterLayout({ slide, animate, fullscreen }: LayoutProps) {
   return (
     <div style={{ 
       flex: 1, 
@@ -54,16 +84,17 @@ function TitleCenterLayout({ slide }: { slide: Slide }) {
       alignItems: "center", 
       justifyContent: "center",
       textAlign: "center",
-      gap: "16px",
+      gap: fullscreen ? "2vh" : "16px",
+      overflow: "hidden",
     }}>
       {slide.elements.map((element, index) => (
-        <SlideElement key={element.id || index} element={element} index={index} />
+        <SlideElement key={element.id || index} element={element} index={index} animate={animate} fullscreen={fullscreen} />
       ))}
     </div>
   );
 }
 
-function TwoColumnLayout({ slide }: { slide: Slide }) {
+function TwoColumnLayout({ slide, animate, fullscreen }: LayoutProps) {
   // 找出标题元素（不分列的）
   const headerElements = slide.elements.filter(
     (e) => e.type === "heading" && (!e.position?.column)
@@ -80,13 +111,14 @@ function TwoColumnLayout({ slide }: { slide: Slide }) {
       display: "flex",
       flexDirection: "column",
       height: "100%",
-      gap: "32px",
+      gap: fullscreen ? "3vh" : "32px",
+      overflow: "hidden",
     }}>
       {/* 标题区域 */}
       {headerElements.length > 0 && (
         <div style={{ flexShrink: 0 }}>
           {headerElements.map((element, index) => (
-            <SlideElement key={element.id || index} element={element} index={index} />
+            <SlideElement key={element.id || index} element={element} index={index} animate={animate} fullscreen={fullscreen} />
           ))}
         </div>
       )}
@@ -95,18 +127,19 @@ function TwoColumnLayout({ slide }: { slide: Slide }) {
       <div style={{ 
         display: "grid", 
         gridTemplateColumns: "1fr 1fr", 
-        gap: "48px", 
+        gap: fullscreen ? "4vw" : "48px", 
         flex: 1,
         alignItems: "start",
+        overflow: "hidden",
       }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: fullscreen ? "2vh" : "20px" }}>
           {col1.filter(e => e.type !== "heading" || e.position?.column === 1).map((element, index) => (
-            <SlideElement key={element.id || index} element={element} index={index} />
+            <SlideElement key={element.id || index} element={element} index={index} animate={animate} fullscreen={fullscreen} />
           ))}
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: fullscreen ? "2vh" : "20px" }}>
           {col2.map((element, index) => (
-            <SlideElement key={element.id || index} element={element} index={index} />
+            <SlideElement key={element.id || index} element={element} index={index} animate={animate} fullscreen={fullscreen} />
           ))}
         </div>
       </div>
