@@ -1,0 +1,42 @@
+/**
+ * Minimal Theme - 极简留白风格
+ * 适合艺术展示、简约演示
+ */
+
+:root {
+  /* 颜色 - 纯黑白 */
+  --sf-color-primary: #000000;
+  --sf-color-secondary: #525252;
+  --sf-color-accent: #000000;
+  --sf-color-background: #ffffff;
+  --sf-color-surface: #fafafa;
+  --sf-color-text: #171717;
+  --sf-color-text-muted: #a3a3a3;
+  --sf-color-border: #e5e5e5;
+
+  /* 字体 - 轻量 */
+  --sf-font-heading: 'Inter', system-ui, sans-serif;
+  --sf-font-body: 'Inter', system-ui, sans-serif;
+  --sf-font-code: 'SF Mono', 'Fira Code', monospace;
+
+  /* 字号 - 大标题 */
+  --sf-font-size-h1: 4.5rem;
+  --sf-font-size-h2: 3rem;
+  --sf-font-size-h3: 1.75rem;
+  --sf-font-size-body: 1.25rem;
+  --sf-font-size-small: 1rem;
+
+  /* 间距 - 大留白 */
+  --sf-spacing-page: 6rem;
+  --sf-spacing-element: 2.5rem;
+
+  /* 圆角 - 无 */
+  --sf-radius-sm: 0;
+  --sf-radius-md: 0;
+  --sf-radius-lg: 0;
+
+  /* 阴影 - 无 */
+  --sf-shadow-sm: none;
+  --sf-shadow-md: none;
+  --sf-shadow-lg: none;
+}

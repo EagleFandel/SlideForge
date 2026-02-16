@@ -1,3 +1,20 @@
+/*
+ * SlideForge - AI-First Slides Protocol Framework
+ * Copyright (C) 2026 SlideForge Contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 // ============================================
 // SlideForge Protocol v1.0 - Type Definitions
 // ============================================
@@ -20,6 +37,23 @@ export type SlideType =
   | "quote"
   | "blank";
 
+/** 
+ * 页面语义角色 (AI-Native)
+ * 帮助 AI 理解这一页在叙事结构中的作用
+ */
+export type SlideRole =
+  | "hook"        // 开场吸引注意力
+  | "agenda"      // 议程/目录
+  | "problem"     // 痛点/问题陈述
+  | "solution"    // 解决方案
+  | "feature"     // 功能/特性介绍
+  | "demo"        // 演示/示例
+  | "case"        // 案例/故事
+  | "data"        // 数据/证据
+  | "comparison"  // 对比
+  | "summary"     // 总结/回顾
+  | "cta";        // 行动号召
+
 /** 元素类型 */
 export type ElementType =
   | "heading"
@@ -30,7 +64,8 @@ export type ElementType =
   | "chart"
   | "shape"
   | "video"
-  | "table";
+  | "table"
+  | "quote";
 
 /** 动画类型 */
 export type AnimationType =
@@ -105,7 +140,8 @@ export interface Position {
 
 export interface BaseElement {
   id?: string;
-  type: ElementType;
+  type: string;                         // string 而非 enum，支持插件扩展
+  namespace?: string;                   // 插件命名空间 (e.g. "plugin.chart3d")
   position?: Position;
   animation?: Animation;
   style?: Record<string, string>;
@@ -184,6 +220,13 @@ export interface TableElement extends BaseElement {
   bordered?: boolean;
 }
 
+export interface QuoteElement extends BaseElement {
+  type: "quote";
+  text: string;
+  author?: string;
+  source?: string;
+}
+
 export type Element =
   | HeadingElement
   | TextElement
@@ -193,7 +236,8 @@ export type Element =
   | ChartElement
   | ShapeElement
   | VideoElement
-  | TableElement;
+  | TableElement
+  | QuoteElement;
 
 
 // ============================================
@@ -203,6 +247,12 @@ export type Element =
 export interface Slide {
   id?: string;
   type: SlideType;
+  /** 
+   * 语义角色 (AI-Native)
+   * 帮助 AI 理解这一页在叙事结构中的作用
+   * Runtime 可忽略，不影响渲染
+   */
+  role?: SlideRole;
   layout?: string;
   background?: Background;
   transition?: TransitionConfig;
@@ -257,3 +307,65 @@ export type LayoutTemplate =
   | "image-right"
   | "image-full"
   | "split-horizontal";
+
+
+// ============================================
+// Poster 文档定义
+// ============================================
+
+/** Poster 模板类型 */
+export type PosterTemplate = 
+  | "card"      // 卡片式
+  | "social"    // 社交分享
+  | "quote"     // 引用卡片
+  | "list"      // 列表式
+  | "minimal";  // 极简
+
+/** Poster 配置 */
+export interface PosterConfig {
+  template: PosterTemplate;
+  theme: string;
+  size: {
+    width: number;
+    height: number | "auto";
+  };
+  background?: Background;
+  padding?: number;
+  borderRadius?: number;
+}
+
+/** Poster 内容 */
+export interface PosterContent {
+  /** Markdown 原文（二选一） */
+  markdown?: string;
+  
+  /** 结构化内容（二选一） */
+  title?: string;
+  subtitle?: string;
+  body?: string;
+  image?: string;
+  footer?: string;
+  qrcode?: string;
+  
+  /** 元数据 */
+  author?: string;
+  date?: string;
+  logo?: string;
+}
+
+/** Poster 文档 */
+export interface PosterDocument {
+  version: ProtocolVersion;
+  type: "poster";
+  metadata: {
+    title?: string;
+    author?: string;
+    createdAt?: string;
+    updatedAt?: string;
+  };
+  config: PosterConfig;
+  content: PosterContent;
+}
+
+/** 统一文档类型 */
+export type SlideForgeDocument = SlideDocument | PosterDocument;

@@ -1,0 +1,46 @@
+/**
+ * Creative Theme - 创意活泼风格
+ * 适合产品发布、创意展示
+ */
+
+:root {
+  /* 颜色 - 多彩渐变 */
+  --sf-color-primary: #8b5cf6;
+  --sf-color-secondary: #ec4899;
+  --sf-color-accent: #f59e0b;
+  --sf-color-background: #faf5ff;
+  --sf-color-surface: #ffffff;
+  --sf-color-text: #1e1b4b;
+  --sf-color-text-muted: #6b7280;
+  --sf-color-border: #e9d5ff;
+
+  /* 字体 */
+  --sf-font-heading: 'Poppins', 'Inter', system-ui, sans-serif;
+  --sf-font-body: 'Inter', system-ui, sans-serif;
+  --sf-font-code: 'Fira Code', 'Consolas', monospace;
+
+  /* 字号 */
+  --sf-font-size-h1: 4rem;
+  --sf-font-size-h2: 2.75rem;
+  --sf-font-size-h3: 2rem;
+  --sf-font-size-body: 1.25rem;
+  --sf-font-size-small: 1rem;
+
+  /* 间距 */
+  --sf-spacing-page: 4rem;
+  --sf-spacing-element: 2rem;
+
+  /* 圆角 */
+  --sf-radius-sm: 8px;
+  --sf-radius-md: 16px;
+  --sf-radius-lg: 24px;
+
+  /* 阴影 */
+  --sf-shadow-sm: 0 2px 8px rgba(139, 92, 246, 0.1);
+  --sf-shadow-md: 0 8px 24px rgba(139, 92, 246, 0.15);
+  --sf-shadow-lg: 0 16px 48px rgba(139, 92, 246, 0.2);
+
+  /* 渐变 */
+  --sf-gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  --sf-gradient-accent: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+}

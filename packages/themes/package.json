@@ -17,6 +17,8 @@
     "build": "tsup src/index.ts --format cjs,esm --dts && pnpm build:css",
     "build:css": "node scripts/build-css.js",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "type-check": "tsc --noEmit",
+    "test": "pnpm type-check",
     "clean": "rimraf dist"
   },
   "devDependencies": {
@@ -24,5 +26,5 @@
     "typescript": "^5.7.2",
     "rimraf": "^6.0.1"
   },
-  "license": "MIT"
+  "license": "Apache-2.0"
 }
