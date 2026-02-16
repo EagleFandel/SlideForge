@@ -1,0 +1,149 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "title": "SlideForge 设计模板展示",
+    "author": "Eagle",
+    "description": "展示精美的幻灯片设计模板"
+  },
+  "config": {
+    "theme": "default",
+    "aspectRatio": "16:9"
+  },
+  "slides": [
+    {
+      "type": "title",
+      "layout": "title-center",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      },
+      "elements": [
+        { "type": "heading", "level": 1, "text": "SlideForge", "animation": "fadeInDown" },
+        { "type": "text", "text": "AI-First Slides Protocol Framework", "animation": "fadeInUp" },
+        { "type": "text", "text": "让 AI 生成的想法，拥有可靠的展示终点", "animation": "fadeIn" }
+      ]
+    },
+    {
+      "type": "section",
+      "layout": "title-center",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+      },
+      "elements": [
+        { "type": "heading", "level": 1, "text": "🎯 核心特性", "animation": "zoomIn" }
+      ]
+    },
+    {
+      "type": "content",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(180deg, #1a1a2e 0%, #16213e 100%)"
+      },
+      "elements": [
+        { "type": "heading", "level": 2, "text": "为什么选择 SlideForge？" },
+        { 
+          "type": "list", 
+          "items": [
+            "🤖 AI 首次生成成功率 > 95%",
+            "🎬 JSON 导入即可演示，无需转换",
+            "📤 支持 PDF / HTML / 图片多格式导出",
+            "🎨 丰富的主题和动画效果",
+            "🔌 MCP Server 支持，与 AI 工具无缝集成"
+          ],
+          "animation": "fadeInUp"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%)"
+      },
+      "elements": [
+        { "type": "heading", "level": 2, "text": "💻 简洁的协议设计" },
+        {
+          "type": "code",
+          "language": "json",
+          "code": "{\n  \"version\": \"1.0\",\n  \"metadata\": { \"title\": \"My Slides\" },\n  \"slides\": [\n    {\n      \"type\": \"title\",\n      \"elements\": [\n        { \"type\": \"heading\", \"text\": \"Hello!\" }\n      ]\n    }\n  ]\n}",
+          "animation": "fadeIn"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "layout": "two-column",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(135deg, #141e30 0%, #243b55 100%)"
+      },
+      "elements": [
+        { "type": "heading", "level": 2, "text": "📊 对比传统方案" },
+        { "type": "heading", "level": 3, "text": "传统方式", "position": { "column": 1 } },
+        { 
+          "type": "list", 
+          "items": ["格式不统一", "无法预览", "导出困难", "AI 难以生成"],
+          "position": { "column": 1 }
+        },
+        { "type": "heading", "level": 3, "text": "SlideForge", "position": { "column": 2 } },
+        { 
+          "type": "list", 
+          "items": ["标准化 JSON", "立即演示", "多格式导出", "AI 友好"],
+          "position": { "column": 2 }
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(135deg, #232526 0%, #414345 100%)"
+      },
+      "elements": [
+        { "type": "heading", "level": 2, "text": "💬 用户评价" },
+        {
+          "type": "quote",
+          "text": "Slides 不再是文件，而是一种可计算的内容结构。这改变了我对演示文稿的认知。",
+          "author": "AI 开发者",
+          "animation": "fadeInLeft"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)"
+      },
+      "elements": [
+        { "type": "heading", "level": 2, "text": "🚀 快速开始", "style": { "color": "#1a1a2e" } },
+        { 
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "访问 SlideForge Dashboard",
+            "导入 JSON 或使用 AI 生成",
+            "选择主题和动画",
+            "一键演示或导出"
+          ],
+          "animation": "slideInLeft",
+          "style": { "color": "#1a1a2e" }
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "layout": "title-center",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      },
+      "elements": [
+        { "type": "heading", "level": 1, "text": "开始使用 SlideForge", "animation": "zoomIn" },
+        { "type": "text", "text": "github.com/slideforge/slideforge", "animation": "fadeInUp" },
+        { "type": "text", "text": "Apache 2.0 License · Made with ❤️", "animation": "fadeIn" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 讨论和问题
+    url: https://github.com/slideforge/slideforge/discussions
+    about: 提问、分享想法和讨论
+  - name: 文档
+    url: https://github.com/slideforge/slideforge/tree/main/docs
+    about: 查看项目文档

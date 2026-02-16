@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "title": "测试演示文稿",
+    "author": "Test"
+  },
+  "config": {
+    "theme": "dark",
+    "aspectRatio": "16:9"
+  },
+  "slides": [
+    {
+      "type": "title",
+      "elements": [
+        { "type": "heading", "level": 1, "text": "SlideForge 测试" },
+        { "type": "text", "content": "AI-First Slides 协议框架" }
+      ]
+    },
+    {
+      "type": "content",
+      "elements": [
+        { "type": "heading", "level": 2, "text": "核心功能" },
+        {
+          "type": "list",
+          "items": [
+            "标准化 JSON 协议",
+            "在线演示 + 动画",
+            "多格式导出",
+            "AI 生成支持"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "elements": [
+        { "type": "heading", "level": 1, "text": "谢谢" }
+      ]
+    }
+  ]
+}

@@ -19,7 +19,21 @@ interface ToolResult {
 /**
  * 处理工具调用的主入口
  */
-export async function handleToolCal
+export async function handleToolCall(
+  name: string,
+  args: Record<string, unknown>
+): Promise<ToolResult> {
+  try {
+    switch (name) {
+      case "create_presentation":
+        return handleCreatePresentation(args);
+      case "add_slide":
+        return handleAddSlide(args);
+      case "validate":
+        return handleValidate(args);
+      case "list_themes":
+        return handleListThemes();
+      case "get_protocol_info":
         return handleGetProtocolInfo();
       case "create_poster":
         return handleCreatePoster(args);

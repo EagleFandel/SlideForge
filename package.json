@@ -4,7 +4,7 @@
   "private": true,
   "description": "AI-First Slides Protocol Framework + Runtime",
   "author": "SlideForge Team",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/slideforge/slideforge"
@@ -13,6 +13,8 @@
     "dev": "turbo dev",
     "build": "turbo build",
     "lint": "turbo lint",
+    "type-check": "turbo run type-check",
+    "test": "node scripts/run-tests.mjs",
     "clean": "turbo clean && rimraf node_modules"
   },
   "devDependencies": {

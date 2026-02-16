@@ -1,0 +1,130 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "title": "SlideForge 完整功能测试",
+    "author": "Eagle",
+    "description": "测试所有元素类型、动画效果和主题"
+  },
+  "config": {
+    "theme": "default",
+    "aspectRatio": "16:9"
+  },
+  "slides": [
+    {
+      "type": "title",
+      "elements": [
+        { "type": "heading", "level": 1, "text": "SlideForge 功能测试", "animation": "fadeInDown" },
+        { "type": "text", "text": "AI-First Slides Protocol Framework", "animation": "fadeInUp" }
+      ]
+    },
+    {
+      "type": "content",
+      "elements": [
+        { "type": "heading", "level": 2, "text": "📝 文本元素测试", "animation": "fadeIn" },
+        { "type": "text", "text": "这是普通文本段落，用于测试基础文本渲染效果。", "animation": "fadeInLeft" },
+        { "type": "text", "text": "支持多段落文本，每个段落可以有独立的动画效果。", "animation": "fadeInRight" }
+      ]
+    },
+    {
+      "type": "content",
+      "elements": [
+        { "type": "heading", "level": 2, "text": "📋 列表元素测试", "animation": "fadeIn" },
+        { 
+          "type": "list", 
+          "items": [
+            "无序列表项 1 - fadeInUp 动画",
+            "无序列表项 2 - 支持 emoji 🎉",
+            "无序列表项 3 - 中文内容测试"
+          ],
+          "animation": "fadeInUp"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "elements": [
+        { "type": "heading", "level": 2, "text": "🔢 有序列表测试", "animation": "zoomIn" },
+        { 
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "第一步：创建 JSON 文档",
+            "第二步：导入到 SlideForge",
+            "第三步：立即演示"
+          ],
+          "animation": "slideInLeft"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "elements": [
+        { "type": "heading", "level": 2, "text": "💻 代码块测试", "animation": "fadeIn" },
+        {
+          "type": "code",
+          "language": "typescript",
+          "code": "// SlideForge Protocol 示例\nconst slide: Slide = {\n  type: 'content',\n  elements: [\n    { type: 'heading', level: 2, text: 'Hello' }\n  ]\n};",
+          "animation": "fadeInUp"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "elements": [
+        { "type": "heading", "level": 2, "text": "🖼️ 图片元素测试", "animation": "fadeIn" },
+        {
+          "type": "image",
+          "src": "https://via.placeholder.com/600x300/3b82f6/ffffff?text=SlideForge+Image",
+          "alt": "测试图片",
+          "animation": "zoomIn"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "elements": [
+        { "type": "heading", "level": 2, "text": "💬 引用块测试", "animation": "fadeIn" },
+        {
+          "type": "quote",
+          "text": "Slides 不再是文件，而是一种可计算的内容结构。",
+          "author": "SlideForge",
+          "animation": "fadeInLeft"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "elements": [
+        { "type": "heading", "level": 2, "text": "🎬 动画效果展示", "animation": "fadeIn" },
+        { "type": "text", "text": "fadeInUp - 从下往上淡入", "animation": "fadeInUp" },
+        { "type": "text", "text": "fadeInDown - 从上往下淡入", "animation": "fadeInDown" },
+        { "type": "text", "text": "fadeInLeft - 从左往右淡入", "animation": "fadeInLeft" },
+        { "type": "text", "text": "fadeInRight - 从右往左淡入", "animation": "fadeInRight" },
+        { "type": "text", "text": "zoomIn - 缩放淡入", "animation": "zoomIn" }
+      ]
+    },
+    {
+      "type": "content",
+      "elements": [
+        { "type": "heading", "level": 2, "text": "📊 标题层级测试" },
+        { "type": "heading", "level": 1, "text": "H1 一级标题" },
+        { "type": "heading", "level": 2, "text": "H2 二级标题" },
+        { "type": "heading", "level": 3, "text": "H3 三级标题" }
+      ]
+    },
+    {
+      "type": "section",
+      "elements": [
+        { "type": "heading", "level": 1, "text": "🎨 主题测试", "animation": "zoomIn" },
+        { "type": "text", "text": "修改 config.theme 测试不同主题：default / minimal / academic / creative", "animation": "fadeInUp" }
+      ]
+    },
+    {
+      "type": "end",
+      "elements": [
+        { "type": "heading", "level": 1, "text": "感谢测试！", "animation": "zoomIn" },
+        { "type": "text", "text": "SlideForge v1.0", "animation": "fadeInUp" }
+      ]
+    }
+  ]
+}

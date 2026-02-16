@@ -303,3 +303,264 @@ interface SpacerElement extends BaseElement {
   size: number | string;
 }
 ```
+
+
+#### 数据可视化元素
+
+```typescript
+// 表格
+interface TableElement extends BaseElement {
+  type: "table";
+  headers?: string[];
+  rows: string[][];
+  striped?: boolean;
+  bordered?: boolean;
+}
+
+// 图表 (基于配置生成)
+interface ChartElement extends BaseElement {
+  type: "chart";
+  chartType: "bar" | "line" | "pie" | "donut" | "area";
+  data: {
+    labels: string[];
+    datasets: {
+      label?: string;
+      values: number[];
+      color?: string;
+    }[];
+  };
+  options?: Record<string, any>;
+}
+
+// 数学公式
+interface MathElement extends BaseElement {
+  type: "math";
+  content: string;        // LaTeX 语法
+  display?: boolean;      // 行内/块级
+}
+
+// Mermaid 图表
+interface DiagramElement extends BaseElement {
+  type: "diagram";
+  content: string;        // Mermaid 语法
+}
+```
+
+#### 交互元素
+
+```typescript
+// 链接按钮
+interface ButtonElement extends BaseElement {
+  type: "button";
+  label: string;
+  href?: string;
+  action?: "next" | "prev" | "goto";
+  target?: string;        // slide ID
+}
+
+// 嵌入内容
+interface EmbedElement extends BaseElement {
+  type: "embed";
+  src: string;            // iframe URL
+  aspectRatio?: string;   // 如 "16:9"
+}
+```
+
+### 5.2 动画配置 (Animation)
+
+```typescript
+interface Animation {
+  type: "none" | "fade" | "scale" | "slide" | "bounce" | "rotate" | "blur";
+  direction?: "up" | "down" | "left" | "right";
+  duration?: number;      // 毫秒
+  delay?: number;         // 延迟
+  easing?: string;
+}
+```
+
+---
+
+## 6. 资源声明 (Assets)
+
+```typescript
+interface Asset {
+  id: string;             // 引用 ID
+  type: "image" | "video" | "audio" | "font" | "file";
+  src: string;            // URL
+  name?: string;          // 显示名称
+  size?: number;          // 文件大小 (bytes)
+  mime?: string;          // MIME 类型
+}
+```
+
+---
+
+## 7. 完整示例
+
+```json
+{
+  "$schema": "https://slideforge.dev/schema/v1.json",
+  "meta": {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "title": "SlideForge 介绍",
+    "author": "AI Assistant",
+    "createdAt": "2024-12-29T10:00:00Z",
+    "updatedAt": "2024-12-29T10:00:00Z",
+    "version": "1.0.0",
+    "language": "zh-CN",
+    "tags": ["演示", "框架", "AI"],
+    "aspectRatio": "16:9"
+  },
+  "theme": {
+    "name": "gradient-cool",
+    "colors": {
+      "primary": "#6366f1",
+      "secondary": "#8b5cf6",
+      "background": "#1e1b4b",
+      "text": "#ffffff",
+      "accent": "#f59e0b"
+    }
+  },
+  "slides": [
+    {
+      "id": "slide-1",
+      "layout": "title",
+      "background": {
+        "type": "gradient",
+        "value": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      },
+      "elements": [
+        {
+          "type": "title",
+          "content": "SlideForge",
+          "animate": { "type": "scale", "duration": 600 }
+        },
+        {
+          "type": "text",
+          "content": "AI-Friendly Slides Framework",
+          "animate": { "type": "fade", "delay": 300 }
+        }
+      ],
+      "notes": "这是开场页，介绍产品名称和定位"
+    },
+    {
+      "id": "slide-2",
+      "layout": "content",
+      "transition": { "type": "slide", "direction": "left" },
+      "elements": [
+        {
+          "type": "title",
+          "content": "核心特性",
+          "level": 2
+        },
+        {
+          "type": "list",
+          "items": [
+            "🤖 AI 原生设计",
+            "📐 标准化 JSON Schema",
+            "🎨 丰富的主题系统",
+            "✨ 内置动画效果",
+            "📄 一键导出 PDF"
+          ],
+          "animate": { "type": "slide", "direction": "up" }
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "logo",
+      "type": "image",
+      "src": "https://example.com/logo.png",
+      "name": "Logo"
+    }
+  ]
+}
+```
+
+
+---
+
+## 8. AI 生成指南
+
+### 8.1 Prompt 模板
+
+```
+请使用 SlideForge Protocol v1.0 生成一个演示文稿。
+
+主题：[你的主题]
+页数：[预期页数]
+风格：[专业/活泼/简约/科技]
+语言：[zh-CN/en-US]
+
+要求：
+1. 输出完整的 JSON，符合 SlideForge Protocol 规范
+2. 包含适当的布局变化
+3. 添加入场动画
+4. 包含演讲者备注
+
+输出格式：仅输出 JSON，不要其他解释
+```
+
+### 8.2 AI 生成规则
+
+1. **必须包含** `$schema`、`meta`、`slides` 字段
+2. **每个 slide 必须有** `id`、`layout`、`elements`
+3. **id 命名规范**: `slide-1`, `slide-2` 或语义化如 `slide-intro`
+4. **动画适度**: 不要每个元素都加动画，重点内容加即可
+5. **布局多样**: 避免所有页面使用相同布局
+6. **备注有用**: notes 应包含演讲要点，而非重复内容
+
+### 8.3 验证
+
+导入平台前，JSON 需通过 Schema 验证：
+
+```bash
+npx slideforge validate presentation.sfp.json
+```
+
+---
+
+## 9. 版本兼容
+
+| 协议版本 | 状态 | 说明 |
+|---------|------|------|
+| v1.0 | Current | 当前稳定版本 |
+
+### 向后兼容原则
+
+- 新增字段使用可选属性
+- 废弃字段保留至少 2 个主版本
+- 破坏性变更仅在主版本升级时引入
+
+---
+
+## 10. 扩展机制
+
+### 自定义元素
+
+```typescript
+interface CustomElement extends BaseElement {
+  type: "custom";
+  component: string;      // 自定义组件名
+  props?: Record<string, any>;
+}
+```
+
+### 插件元数据
+
+```typescript
+interface PluginMeta {
+  plugins?: {
+    name: string;
+    version: string;
+    config?: Record<string, any>;
+  }[];
+}
+```
+
+---
+
+## License
+
+MIT License - 自由使用、修改、分发
